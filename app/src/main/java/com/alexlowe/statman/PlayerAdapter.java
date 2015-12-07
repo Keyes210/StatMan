@@ -1,13 +1,18 @@
 package com.alexlowe.statman;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -59,6 +64,13 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
         viewHolder.star2.setText(String.valueOf(player.getSecondStar()));
         viewHolder.star3.setText(String.valueOf(player.getThirdStar()));
 
+        setUpTouchResponse(viewHolder.goals);
+        setUpTouchResponse(viewHolder.assists);
+        setUpTouchResponse(viewHolder.points);
+        setUpTouchResponse(viewHolder.star1);
+        setUpTouchResponse(viewHolder.star2);
+        setUpTouchResponse(viewHolder.star3);
+
         return convertView;
     }
 
@@ -70,6 +82,55 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
         TextView star2;
         TextView star3;
         ImageView icon;
+    }
+
+    private void setUpTouchResponse(final TextView tv){
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                show(tv);
+            }
+        });
+    }
+
+    private void show(final TextView tv) {
+        final Dialog d = new Dialog(getContext());
+        d.setTitle("Change Value");
+        d.setContentView(R.layout.dialog);
+
+        Button plus = (Button) d.findViewById(R.id.plusButton);
+        Button minus = (Button) d.findViewById(R.id.minusButton);
+        Button ok = (Button) d.findViewById(R.id.okButton);
+        final TextView[] dialogET = {(TextView) d.findViewById(R.id.dialogET)};
+        dialogET[0].setText(tv.getText());
+        final int[] value = {Integer.valueOf(tv.getText().toString())};
+
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                value[0]++;
+                dialogET[0].setText(value[0] + "");
+            }
+        });
+
+        minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                value[0] -= 1;
+                dialogET[0].setText(value[0] + "");
+            }
+        });
+
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tv.setText(dialogET[0].getText());
+                d.dismiss();
+            }
+        });
+
+        d.show();
+
     }
 
     public static int calculateInSampleSize(
