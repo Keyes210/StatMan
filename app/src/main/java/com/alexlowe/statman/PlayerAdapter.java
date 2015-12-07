@@ -1,6 +1,9 @@
 package com.alexlowe.statman;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +50,8 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.icon.setImageResource(player.getImgID());
+        viewHolder.icon.setImageBitmap(decodeSampleBitmapFromResource(getContext()
+                .getResources(),player.getImgID(), 50, 50));
         viewHolder.goals.setText(String.valueOf(player.getGoals()));
         viewHolder.assists.setText(String.valueOf(player.getAssists()));
         viewHolder.points.setText(String.valueOf(player.getPoints()));
@@ -66,5 +70,36 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
         TextView star2;
         TextView star3;
         ImageView icon;
+    }
+
+    public static int calculateInSampleSize(
+            BitmapFactory.Options options, int reqWidth, int reqHeight) {
+
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        int inSampleSize = 1;
+
+        if (height > reqHeight || width > reqWidth) {
+
+            final int heightRatio = Math.round((float) height / (float) reqHeight);
+            final int widthRatio = Math.round((float) width / (float) reqWidth);
+
+            inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
+        }
+
+        return inSampleSize;
+    }
+
+    public static Bitmap decodeSampleBitmapFromResource(Resources res, int resId,
+                                                         int reqWidth, int reqHeight) {
+
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeResource(res, resId, options);
+
+        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
+
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeResource(res, resId, options);
     }
 }
