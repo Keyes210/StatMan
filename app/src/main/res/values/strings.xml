@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">StatMan</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="names">
+        <item>Mario</item>
+        <item>Mike</item>
+        <item>Pat</item>
+        <item>Alex</item>
+    </string-array>
+
+</resources>
