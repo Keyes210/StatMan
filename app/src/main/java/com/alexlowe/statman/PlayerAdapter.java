@@ -64,12 +64,12 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
         viewHolder.star2.setText(String.valueOf(player.getSecondStar()));
         viewHolder.star3.setText(String.valueOf(player.getThirdStar()));
 
-        setUpTouchResponse(viewHolder.goals);
-        setUpTouchResponse(viewHolder.assists);
-        setUpTouchResponse(viewHolder.points);
-        setUpTouchResponse(viewHolder.star1);
-        setUpTouchResponse(viewHolder.star2);
-        setUpTouchResponse(viewHolder.star3);
+        setUpTouchResponse(viewHolder.goals, player, "g");
+        setUpTouchResponse(viewHolder.assists, player, "a");
+        setUpTouchResponse(viewHolder.points, player, "p");
+        setUpTouchResponse(viewHolder.star1, player, "1");
+        setUpTouchResponse(viewHolder.star2, player, "2");
+        setUpTouchResponse(viewHolder.star3, player, "3");
 
         return convertView;
     }
@@ -84,16 +84,18 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
         ImageView icon;
     }
 
-    private void setUpTouchResponse(final TextView tv){
+
+    private void setUpTouchResponse(final TextView tv, final Player player, final String statKey){
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                show(tv);
+                show(tv, player, statKey);
             }
         });
     }
 
-    private void show(final TextView tv) {
+
+    private void show(final TextView tv, final Player player, final String statKey) {
         final Dialog d = new Dialog(getContext());
         d.setTitle("Change Value");
         d.setContentView(R.layout.dialog);
@@ -126,12 +128,39 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
             public void onClick(View v) {
                 tv.setText(dialogET[0].getText());
                 d.dismiss();
+                updateData(dialogET[0].getText().toString(),player, statKey);
             }
         });
 
         d.show();
 
     }
+
+
+    private void updateData(String value, Player player, String statKey) {
+        switch (statKey){
+            case "g":
+                player.setGoals(Integer.valueOf(value));
+                break;
+            case "a":
+                player.setAssists(Integer.valueOf(value));
+                break;
+            case "p":
+                player.setPoints(Integer.valueOf(value));
+                break;
+            case "1":
+                player.setFirstStar(Integer.valueOf(value));
+                break;
+            case "2":
+                player.setSecondStar(Integer.valueOf(value));
+                break;
+            case "3":
+                player.setThirdStar(Integer.valueOf(value));
+                break;
+
+        }
+    }
+
 
     public static int calculateInSampleSize(
             BitmapFactory.Options options, int reqWidth, int reqHeight) {
@@ -150,6 +179,7 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
 
         return inSampleSize;
     }
+
 
     public static Bitmap decodeSampleBitmapFromResource(Resources res, int resId,
                                                          int reqWidth, int reqHeight) {

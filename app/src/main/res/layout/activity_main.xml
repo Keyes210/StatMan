@@ -101,10 +101,13 @@
     </LinearLayout>
 
     <ListView
+        android:listSelector="@android:color/transparent"
         android:layout_below="@+id/titles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:divider="@null"
         android:dividerHeight="0dp"
         android:id="@+id/listView"/>
+
+
 </RelativeLayout>

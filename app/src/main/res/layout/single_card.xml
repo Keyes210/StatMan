@@ -43,7 +43,10 @@
                     android:layout_width="45dp"
                     android:layout_height="wrap_content"
                     android:text="888"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:clickable="true"
+                    android:background="@drawable/textview_selector"
+                    />
 
                 <TextView
                     android:id="@+id/assistET"
@@ -53,7 +56,9 @@
                     android:layout_width="45dp"
                     android:layout_height="wrap_content"
                     android:text="888"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:clickable="true"
+                    android:background="@drawable/textview_selector"/>
 
                 <TextView
                     android:id="@+id/pointsET"
@@ -63,7 +68,9 @@
                     android:layout_width="45dp"
                     android:layout_height="wrap_content"
                     android:text="888"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:clickable="true"
+                    android:background="@drawable/textview_selector"/>
 
                 <TextView
                     android:id="@+id/star1ET"
@@ -73,7 +80,9 @@
                     android:layout_width="45dp"
                     android:layout_height="wrap_content"
                     android:text="888"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:clickable="true"
+                    android:background="@drawable/textview_selector"/>
 
                 <TextView
                     android:id="@+id/star2ET"
@@ -83,7 +92,9 @@
                     android:layout_width="45dp"
                     android:layout_height="wrap_content"
                     android:text="888"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:clickable="true"
+                    android:background="@drawable/textview_selector"/>
 
                 <TextView
                     android:id="@+id/star3ET"
@@ -93,7 +104,9 @@
                     android:layout_width="45dp"
                     android:layout_height="wrap_content"
                     android:text="888"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:clickable="true"
+                    android:background="@drawable/textview_selector"/>
 
             </LinearLayout>
 
