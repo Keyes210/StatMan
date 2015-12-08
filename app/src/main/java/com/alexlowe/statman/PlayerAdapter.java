@@ -40,7 +40,7 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) getContext()
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.player_item, parent, false);
+            convertView = inflater.inflate(R.layout.single_card, parent, false);
 
             viewHolder.icon = (ImageView)convertView.findViewById(R.id.playerImage);
             viewHolder.goals = (TextView) convertView.findViewById(R.id.goalET);

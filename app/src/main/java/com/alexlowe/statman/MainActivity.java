@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         playerList.add(Player.players[2]);
         playerList.add(Player.players[3]);
 
-        Player.players[0].setThirdStar(3);
 
         mAdapter = new PlayerAdapter(this, playerList);
         mListView = (ListView) findViewById(R.id.listView);
