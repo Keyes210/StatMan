@@ -8,18 +8,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     public static final String PREFS_NAME = "MyPrefsFile";
 
     private ArrayList<Player> playerList;
     private ListView mListView;
     private PlayerAdapter mAdapter;
+    private TextView g ,a ,p ,s1 , s2, s3;
+    private boolean sorted = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,18 @@ public class MainActivity extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.listView);
         mListView.setAdapter(mAdapter);
 
+        g = (TextView)findViewById(R.id.G);
+        g.setOnClickListener(listener);
+        a = (TextView)findViewById(R.id.A);
+        a.setOnClickListener(listener);
+        p = (TextView)findViewById(R.id.P);
+        p.setOnClickListener(listener);
+        s1 = (TextView)findViewById(R.id.S1);
+        s1.setOnClickListener(listener);
+        s2 = (TextView)findViewById(R.id.S2);
+        s2.setOnClickListener(listener);
+        s3 = (TextView)findViewById(R.id.S3);
+        s3.setOnClickListener(listener);
 
     }
 
@@ -88,4 +106,78 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Stats Saved!", Toast.LENGTH_SHORT).show();
     }
+
+    private View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            String sortby = "";
+            switch (v.getId()){
+                case R.id.G:
+                    sortby = "g";
+                    break;
+                case R.id.A:
+                    sortby = "a";
+                    break;
+                case R.id.P:
+                    sortby = "p";
+                    break;
+                case R.id.S1:
+                    sortby = "1";
+                    break;
+                case R.id.S2:
+                    sortby = "2";
+                    break;
+                case R.id.S3:
+                    sortby = "3";
+                    break;
+            }
+
+            final String finalSortby = sortby;
+            if(sorted) {
+                Collections.sort(playerList, new Comparator<Player>() {
+                    public int compare(Player player1, Player player2) {
+                        return sortKind(player2, finalSortby).compareTo(sortKind(player1, finalSortby));
+                    }
+                });
+                sorted = false;
+            }else{
+                Collections.sort(playerList, new Comparator<Player>() {
+                    public int compare(Player player1, Player player2) {
+                        return sortKind(player1, finalSortby).compareTo(sortKind(player2, finalSortby));
+                    }
+                });
+                sorted = true;
+            }
+            mAdapter.notifyDataSetChanged();
+        }
+    };
+
+    private Integer sortKind(Player player, String sortby) {
+        int result = 0;
+        switch (sortby){
+            case "g":
+                result = player.getGoals();
+                break;
+            case "a":
+                result = player.getAssists();
+                break;
+            case "p":
+                result = player.getPoints();
+                break;
+            case "1":
+                result = player.getFirstStar();
+                break;
+            case "2":
+                result = player.getSecondStar();
+                break;
+            case "3":
+                result = player.getThirdStar();
+                break;
+        }
+
+        return result;
+    }
+
+
+
 }

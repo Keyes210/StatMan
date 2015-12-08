@@ -34,8 +34,8 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
     public View getView(int position, View convertView, ViewGroup parent) {
         Player player = mPlayers.get(position);
 
-        ViewHolder viewHolder;
 
+        ViewHolder viewHolder;
         if(convertView == null){
             viewHolder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) getContext()
@@ -56,23 +56,24 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
         }
 
         viewHolder.icon.setImageBitmap(decodeSampleBitmapFromResource(getContext()
-                .getResources(),player.getImgID(), 50, 50));
+                .getResources(), player.getImgID(), 50, 50));
         viewHolder.goals.setText(String.valueOf(player.getGoals()));
         viewHolder.assists.setText(String.valueOf(player.getAssists()));
-        viewHolder.points.setText(String.valueOf(player.getPoints()));
+        viewHolder.points.setText(String.valueOf(player.getGoals() + player.getAssists()));
         viewHolder.star1.setText(String.valueOf(player.getFirstStar()));
         viewHolder.star2.setText(String.valueOf(player.getSecondStar()));
         viewHolder.star3.setText(String.valueOf(player.getThirdStar()));
 
-        setUpTouchResponse(viewHolder.goals, player, "g");
-        setUpTouchResponse(viewHolder.assists, player, "a");
-        setUpTouchResponse(viewHolder.points, player, "p");
+        setUpTouchResponse(viewHolder.goals, viewHolder.points, player, "g");
+        setUpTouchResponse(viewHolder.assists, viewHolder.points, player, "a");
         setUpTouchResponse(viewHolder.star1, player, "1");
         setUpTouchResponse(viewHolder.star2, player, "2");
         setUpTouchResponse(viewHolder.star3, player, "3");
 
         return convertView;
     }
+
+
 
     static class ViewHolder {
         TextView goals;
@@ -90,6 +91,15 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
             @Override
             public void onClick(View v) {
                 show(tv, player, statKey);
+            }
+        });
+    }
+
+    private void setUpTouchResponse(final TextView tv, final TextView tv2, final Player player, final String statKey){
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                show(tv, tv2, player, statKey);
             }
         });
     }
@@ -128,7 +138,49 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
             public void onClick(View v) {
                 tv.setText(dialogET[0].getText());
                 d.dismiss();
-                updateData(dialogET[0].getText().toString(),player, statKey);
+                updateData(dialogET[0].getText().toString(), player, statKey);
+            }
+        });
+
+        d.show();
+
+    }
+
+    private void show(final TextView tv, final TextView tv2, final Player player, final String statKey) {
+        final Dialog d = new Dialog(getContext());
+        d.setTitle("Change Value");
+        d.setContentView(R.layout.dialog);
+
+        Button plus = (Button) d.findViewById(R.id.plusButton);
+        Button minus = (Button) d.findViewById(R.id.minusButton);
+        Button ok = (Button) d.findViewById(R.id.okButton);
+        final TextView[] dialogET = {(TextView) d.findViewById(R.id.dialogET)};
+        dialogET[0].setText(tv.getText());
+        final int[] value = {Integer.valueOf(tv.getText().toString())};
+
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                value[0]++;
+                dialogET[0].setText(value[0] + "");
+            }
+        });
+
+        minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                value[0] -= 1;
+                dialogET[0].setText(value[0] + "");
+            }
+        });
+
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tv.setText(dialogET[0].getText());
+                d.dismiss();
+                updateData(dialogET[0].getText().toString(), player, statKey);
+                tv2.setText(String.valueOf(player.getGoals() + player.getAssists()));
             }
         });
 
@@ -160,6 +212,7 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
 
         }
     }
+
 
 
     public static int calculateInSampleSize(

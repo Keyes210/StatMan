@@ -46,7 +46,7 @@
                     android:textSize="16sp"
                     android:clickable="true"
                     android:background="@drawable/textview_selector"
-                    />
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/assistET"
@@ -58,7 +58,8 @@
                     android:text="888"
                     android:textSize="16sp"
                     android:clickable="true"
-                    android:background="@drawable/textview_selector"/>
+                    android:background="@drawable/textview_selector"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/pointsET"
@@ -69,8 +70,10 @@
                     android:layout_height="wrap_content"
                     android:text="888"
                     android:textSize="16sp"
-                    android:clickable="true"
-                    android:background="@drawable/textview_selector"/>
+                    android:clickable="false"
+                    android:background="@drawable/textview_selector"
+                    android:textStyle="bold"
+                    />
 
                 <TextView
                     android:id="@+id/star1ET"
@@ -82,7 +85,8 @@
                     android:text="888"
                     android:textSize="16sp"
                     android:clickable="true"
-                    android:background="@drawable/textview_selector"/>
+                    android:background="@drawable/textview_selector"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/star2ET"
@@ -94,7 +98,8 @@
                     android:text="888"
                     android:textSize="16sp"
                     android:clickable="true"
-                    android:background="@drawable/textview_selector"/>
+                    android:background="@drawable/textview_selector"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/star3ET"
@@ -106,7 +111,8 @@
                     android:text="888"
                     android:textSize="16sp"
                     android:clickable="true"
-                    android:background="@drawable/textview_selector"/>
+                    android:background="@drawable/textview_selector"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
