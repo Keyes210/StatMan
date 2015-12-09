@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class StatSaver {
     public static final String PREFS_NAME = "MyPrefsFile";
 
-    public void saveStats(Context context){
+    public static void saveStats(Context context){
         Gson gson = new Gson();
         String alex = gson.toJson(Player.players[0]);
         String mario = gson.toJson(Player.players[1]);
@@ -32,7 +32,7 @@ public class StatSaver {
         Toast.makeText(context, "Stats Saved!", Toast.LENGTH_SHORT).show();
     }
 
-    public ArrayList<Player> pullData(Context context){
+    public static ArrayList<Player> pullData(Context context){
         SharedPreferences sp = context.getSharedPreferences(PREFS_NAME, 0);
         ArrayList<Player> list = new ArrayList<>();
 
@@ -52,7 +52,7 @@ public class StatSaver {
         return list;
     }
 
-    private Player retrieveSaved(String name, SharedPreferences sp){
+    private static Player retrieveSaved(String name, SharedPreferences sp){
         Gson gson = new Gson();
 
         String playerStr = sp.getString(name, "No data");

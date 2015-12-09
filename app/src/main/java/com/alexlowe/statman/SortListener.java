@@ -10,11 +10,11 @@ import java.util.Comparator;
  * Created by dell on 12/9/2015.
  */
 public class SortListener {
-    boolean sorted = false;
+    static boolean sorted = false;
 
-    public View.OnClickListener setUpListener(final ArrayList<Player> players, final PlayerAdapter adapter) {
+    public static View.OnClickListener setUpListener(final ArrayList<Player> players, final PlayerAdapter adapter) {
 
-        View.OnClickListener listener = new View.OnClickListener() {
+        return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String sortby = "";
@@ -45,12 +45,10 @@ public class SortListener {
 
             }
         };
-
-        return listener;
     }
 
 
-    private void sortWork(ArrayList<Player> playerList, final String sortby, PlayerAdapter adapter){
+    private static void sortWork(ArrayList<Player> playerList, final String sortby, PlayerAdapter adapter){
         if(sorted) {
             Collections.sort(playerList, new Comparator<Player>() {
                 public int compare(Player player1, Player player2) {
@@ -70,7 +68,7 @@ public class SortListener {
     }
 
 
-    private Integer sortKind(Player player, String sortby) {
+    private static Integer sortKind(Player player, String sortby) {
         int result = 0;
         switch (sortby){
             case "g":
