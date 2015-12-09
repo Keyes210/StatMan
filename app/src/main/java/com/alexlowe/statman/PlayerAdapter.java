@@ -181,6 +181,7 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
                 d.dismiss();
                 updateData(dialogET[0].getText().toString(), player, statKey);
                 tv2.setText(String.valueOf(player.getGoals() + player.getAssists()));
+                updateData(String.valueOf(player.getGoals() + player.getAssists()), player, "p");
             }
         });
 

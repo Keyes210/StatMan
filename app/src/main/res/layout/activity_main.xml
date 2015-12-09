@@ -39,6 +39,7 @@
                 android:text="G"
                 android:textStyle="bold"
                 android:textSize="16sp"
+                android:background="@drawable/textview_selector"
                 android:clickable="true"/>
 
             <TextView
@@ -52,6 +53,7 @@
                 android:textStyle="bold"
                 android:textIsSelectable="false"
                 android:textSize="16sp"
+                android:background="@drawable/textview_selector"
                 android:clickable="true"/>
 
             <TextView
@@ -64,6 +66,7 @@
                 android:text="P"
                 android:textStyle="bold"
                 android:textSize="16sp"
+                android:background="@drawable/textview_selector"
                 android:clickable="true"/>
 
             <TextView
@@ -76,6 +79,7 @@
                 android:text="1*"
                 android:textStyle="bold"
                 android:textSize="16sp"
+                android:background="@drawable/textview_selector"
                 android:clickable="true"/>
 
 
@@ -89,6 +93,7 @@
                 android:text="2*"
                 android:textStyle="bold"
                 android:textSize="16sp"
+                android:background="@drawable/textview_selector"
                 android:clickable="true"/>
 
             <TextView
@@ -100,6 +105,7 @@
                 android:text="3*"
                 android:textStyle="bold"
                 android:textSize="16sp"
+                android:background="@drawable/textview_selector"
                 android:clickable="true"/>
 
         </RelativeLayout>

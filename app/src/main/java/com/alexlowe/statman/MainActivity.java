@@ -63,10 +63,6 @@ public class MainActivity extends AppCompatActivity{
             Player.players[2] = retrieveSaved("mike", sp);
             Player.players[3] = retrieveSaved("pat", sp);
 
-            Log.i("rimjob", "Old Data");
-
-        }else{
-            Log.i("rimjob", "New Data");
         }
 
         list.add(Player.players[0]);
@@ -133,6 +129,7 @@ public class MainActivity extends AppCompatActivity{
             }
 
             final String finalSortby = sortby;
+
             if(sorted) {
                 Collections.sort(playerList, new Comparator<Player>() {
                     public int compare(Player player1, Player player2) {
