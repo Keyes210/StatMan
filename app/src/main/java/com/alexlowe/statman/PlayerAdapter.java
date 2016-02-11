@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 /**
@@ -46,8 +48,11 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.icon.setImageBitmap(ImageHelper.decodeSampleBitmapFromResource(getContext()
-                .getResources(), player.getImgID(), 50, 50));
+        Picasso.with(getContext())
+                .load(player.getImgID())
+                .resize(65, 65)
+                .into(viewHolder.icon);
+
         viewHolder.goals.setText(String.valueOf(player.getGoals()));
         viewHolder.assists.setText(String.valueOf(player.getAssists()));
         viewHolder.points.setText(String.valueOf(player.getGoals() + player.getAssists()));
