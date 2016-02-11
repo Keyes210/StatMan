@@ -10,6 +10,7 @@ import android.widget.TextView;
  * Created by dell on 12/9/2015.
  */
 public class ViewMaster {
+
     public static void setUpTouchResponse(final Context context, final TextView tv, final Player player, final String statKey) {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
