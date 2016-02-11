@@ -26,6 +26,7 @@
                 android:layout_width="65dp"
                 android:layout_height="65dp"
                 android:src="@drawable/me2"
+                android:clickable="false"
                 />
 
             <LinearLayout
@@ -71,7 +72,6 @@
                     android:text="888"
                     android:textSize="16sp"
                     android:clickable="false"
-                    android:background="@drawable/textview_selector"
                     android:textStyle="bold"
                     />
 

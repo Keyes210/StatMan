@@ -16,10 +16,10 @@ public class Player {
     private int thirdStar;
 
     public static final Player[] players = {
-            new Player("Lowe", R.drawable.me),
-            new Player("Mario", R.drawable.mario),
-            new Player("Mike", R.drawable.mike),
-            new Player("Pat", R.drawable.pat),
+            new Player("lowe", R.drawable.me),
+            new Player("mario", R.drawable.mario),
+            new Player("mike", R.drawable.mike),
+            new Player("pat", R.drawable.pat),
     };
 
     public Player(String name, int resourceID) {

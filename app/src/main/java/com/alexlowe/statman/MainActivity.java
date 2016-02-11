@@ -1,6 +1,7 @@
 package com.alexlowe.statman;
 
 import android.content.res.Configuration;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -22,17 +23,21 @@ public class MainActivity extends AppCompatActivity{
     private ArrayList<Player> mPlayerList;
     private PlayerAdapter mAdapter;
 
+    private DrawerLayout mDrawerLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_v2);
 
         mPlayerList = StatSaver.pullData(this);
 
         mAdapter = new PlayerAdapter(this, mPlayerList);
         ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(mAdapter);
+
+        setupToolbar();
 
         setUpTitleBar();
 
@@ -70,6 +75,52 @@ public class MainActivity extends AppCompatActivity{
         StatSaver.saveStats(this);
     }
 
+
+    public void setupToolbar(){
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        //puts appName in toolbar
+        setSupportActionBar(toolbar);
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                item.setChecked(true);
+                mDrawerLayout.closeDrawers();
+                Toast.makeText(MainActivity.this, item.getTitle(), Toast.LENGTH_LONG).show();
+                return true;
+            }
+        });
+
+        final ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.drawer_open,
+                R.string.drawer_close){
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                MainActivity.this.invalidateOptionsMenu();
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                MainActivity.this.invalidateOptionsMenu();
+            }
+
+
+        };
+
+
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
+        mDrawerLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                mDrawerToggle.syncState();
+            }
+        });
+
+    }
 
 
 

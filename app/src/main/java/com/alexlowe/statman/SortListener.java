@@ -17,31 +17,31 @@ public class SortListener {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String sortby = "";
+                String sortBy = "";
                 switch (v.getId()) {
                     case R.id.G:
-                        sortby = "g";
+                        sortBy = "g";
                         break;
                     case R.id.A:
-                        sortby = "a";
+                        sortBy = "a";
                         break;
                     case R.id.P:
-                        sortby = "p";
+                        sortBy = "p";
                         break;
                     case R.id.S1:
-                        sortby = "1";
+                        sortBy = "1";
                         break;
                     case R.id.S2:
-                        sortby = "2";
+                        sortBy = "2";
                         break;
                     case R.id.S3:
-                        sortby = "3";
+                        sortBy = "3";
                         break;
                     default:
                         break;
                 }
 
-                sortWork(players, sortby, adapter);
+                sortWork(players, sortBy, adapter);
 
             }
         };
@@ -49,21 +49,22 @@ public class SortListener {
 
 
     private static void sortWork(ArrayList<Player> playerList, final String sortby, PlayerAdapter adapter){
-        if(sorted) {
-            Collections.sort(playerList, new Comparator<Player>() {
-                public int compare(Player player1, Player player2) {
-                    return sortKind(player2, sortby).compareTo(sortKind(player1, sortby));
-                }
-            });
-            sorted = false;
-        }else{
-            Collections.sort(playerList, new Comparator<Player>() {
-                public int compare(Player player1, Player player2) {
-                    return sortKind(player1, sortby).compareTo(sortKind(player2, sortby));
-                }
-            });
-            sorted = true;
-        }
+            if (sorted) {
+                Collections.sort(playerList, new Comparator<Player>() {
+                    public int compare(Player player1, Player player2) {
+                        return sortKind(player2, sortby).compareTo(sortKind(player1, sortby));
+                    }
+                });
+                sorted = false;
+            } else {
+                Collections.sort(playerList, new Comparator<Player>() {
+                    public int compare(Player player1, Player player2) {
+                        return sortKind(player1, sortby).compareTo(sortKind(player2, sortby));
+                    }
+                });
+                sorted = true;
+            }
+
         adapter.notifyDataSetChanged();
     }
 
@@ -95,4 +96,6 @@ public class SortListener {
 
         return result;
     }
+
+
 }

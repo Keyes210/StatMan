@@ -10,5 +10,9 @@
         <color name="accentColor3">#50514F</color>
         <color name="accentColor4">#BFC6C5</color>
 
+    <color name="primary">#FF010101</color>
+    <color name="primary_dark">#A5010101</color>
+    <color name="accent">#BFC6C5</color>
+
 
 </resources>
