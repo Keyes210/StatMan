@@ -1,5 +1,6 @@
 package com.alexlowe.statman;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -10,18 +11,18 @@ public class Game {
     private int awayScore;
     private boolean overtime = false;
     private char result;
+    private String name;
     private Date gameDate;
+    private Player firstStar;
+    private Player secondStar;
+    private Player thirdStar;
 
-    private int[] alexStat;
-    private int[] marioStat;
-    private int[] mikeStat;
-    private int[] patStat;
+    private ArrayList<Goal> goalList;
 
-    public Game (Date date, int home, int away, boolean overtime){
+    public Game (Date date){
         this.gameDate = date;
-        this.homeScore = home;
-        this.awayScore = away;
-        this.overtime = overtime;
+        this.name = ""; //formatted version of date will go here.
+        goalList = new ArrayList<>();
     }
 
     public int getHomeScore() {
@@ -72,35 +73,43 @@ public class Game {
         this.gameDate = gameDate;
     }
 
-    public int[] getAlexStat() {
-        return alexStat;
+    public String getName() {
+        return name;
     }
 
-    public void setAlexStat(int[] alexStat) {
-        this.alexStat = alexStat;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int[] getMarioStat() {
-        return marioStat;
+    public Player getFirstStar() {
+        return firstStar;
     }
 
-    public void setMarioStat(int[] marioStat) {
-        this.marioStat = marioStat;
+    public void setFirstStar(Player firstStar) {
+        this.firstStar = firstStar;
     }
 
-    public int[] getMikeStat() {
-        return mikeStat;
+    public Player getSecondStar() {
+        return secondStar;
     }
 
-    public void setMikeStat(int[] mikeStat) {
-        this.mikeStat = mikeStat;
+    public void setSecondStar(Player secondStar) {
+        this.secondStar = secondStar;
     }
 
-    public int[] getPatStat() {
-        return patStat;
+    public Player getThirdStar() {
+        return thirdStar;
     }
 
-    public void setPatStat(int[] patStat) {
-        this.patStat = patStat;
+    public void setThirdStar(Player thirdStar) {
+        this.thirdStar = thirdStar;
+    }
+
+    public ArrayList<Goal> getGoalList() {
+        return goalList;
+    }
+
+    public void setGoalList(ArrayList<Goal> goalList) {
+        this.goalList = goalList;
     }
 }

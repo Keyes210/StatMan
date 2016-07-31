@@ -15,6 +15,8 @@ public class Player {
     private int secondStar;
     private int thirdStar;
 
+    ///v2 branch
+
     public static final Player[] players = {
             new Player("lowe", R.drawable.me),
             new Player("mario", R.drawable.mario),

@@ -5,23 +5,20 @@
         <item
             android:id="@+id/navigation_item_attachment"
             android:checked="true"
-            android:title="attachment" />
+            android:title="@string/add_game" />
         <item
             android:id="@+id/navigation_item_images"
-            android:title="images" />
-        <item
-            android:id="@+id/navigation_item_location"
-            android:title="location" />
+            android:title="@string/stats" />
     </group>
 
-    <item android:title="sub_menu">
+    <!--<item android:title="sub_menu">
         <menu>
             <item
                 android:title="sub_menu_item01" />
             <item
                 android:title="sub_menu_item02" />
         </menu>
-    </item>
+    </item>-->
 
 
 </menu>
