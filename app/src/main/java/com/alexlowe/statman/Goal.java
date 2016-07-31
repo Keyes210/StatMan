@@ -9,6 +9,8 @@ import java.util.UUID;
 public class Goal {
     private String scorerId;
     private String assitId;
+    private UUID gameId;
+    private UUID goalId;
 
     private boolean powerPlay = false;
     private boolean shortHanded = false;
@@ -20,6 +22,12 @@ public class Goal {
 
     private int period;
     private Date date;
+
+    public Goal(UUID gameId){
+        this.gameId = gameId;
+        goalId = UUID.randomUUID();
+        this.date = new Date();
+    }
 
     public String getScorerId() {
         return scorerId;
@@ -105,7 +113,19 @@ public class Goal {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public UUID getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(UUID id){
+        this.gameId = id;
+    }
+
+    public UUID getGoalId() {
+        return goalId;
+    }
+
+    public void setGoalId(UUID goalId) {
+        this.goalId = goalId;
     }
 }
