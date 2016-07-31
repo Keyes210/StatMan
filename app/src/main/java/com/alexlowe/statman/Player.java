@@ -1,21 +1,14 @@
 package com.alexlowe.statman;
 
 
+import java.util.UUID;
 
 /**
  * Created by dell on 12/6/2015.
  */
 public class Player {
-    private String name;
-    private int imgID;
-    private int goals;
-    private int assists;
-    private int points;
-    private int firstStar;
-    private int secondStar;
-    private int thirdStar;
-
-    ///v2 branch
+    private String mName;
+    private int mImageId;
 
     public static final Player[] players = {
             new Player("lowe", R.drawable.me),
@@ -24,72 +17,16 @@ public class Player {
             new Player("pat", R.drawable.pat),
     };
 
-    public Player(String name, int resourceID) {
-        this.name = name;
-        this.imgID = resourceID;
+    public Player(String name, int resourceId){
+        mName = name;
+        mImageId = resourceId;
     }
 
-    public String getName() {
-        return name;
+    public String getId() {
+        return mName;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getGoals() {
-        return goals;
-    }
-
-    public void setGoals(int goals) {
-        this.goals = goals;
-    }
-
-    public int getAssists() {
-        return assists;
-    }
-
-    public void setAssists(int assists) {
-        this.assists = assists;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
-    }
-
-    public int getFirstStar() {
-        return firstStar;
-    }
-
-    public void setFirstStar(int firstStar) {
-        this.firstStar = firstStar;
-    }
-
-    public int getSecondStar() {
-        return secondStar;
-    }
-
-    public void setSecondStar(int secondStar) {
-        this.secondStar = secondStar;
-    }
-
-    public int getThirdStar() {
-        return thirdStar;
-    }
-
-    public void setThirdStar(int thirdStar) {
-        this.thirdStar = thirdStar;
-    }
-
-    public int getImgID() {
-        return imgID;
-    }
-
-    public void setImgID(int imgID) {
-        this.imgID = imgID;
+    public int getImageId() {
+        return mImageId;
     }
 }

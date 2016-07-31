@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity{
 
 
     private void setUpTitleBar(){
-        View.OnClickListener listener = SortListener.setUpListener(mPlayerList, mAdapter);
+       /* View.OnClickListener listener = SortListener.setUpListener(mPlayerList, mAdapter);
 
         TextView g = (TextView) findViewById(R.id.G);
         g.setOnClickListener(listener);
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity{
         s2.setOnClickListener(listener);
 
         TextView s3 = (TextView) findViewById(R.id.S3);
-        s3.setOnClickListener(listener);
+        s3.setOnClickListener(listener);*/
     }
 
 

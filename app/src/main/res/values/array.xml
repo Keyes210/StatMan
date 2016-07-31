@@ -1,0 +1,35 @@
+<resources>
+    <string-array name="nhl_teams">
+        <item>anaheimducks</item>
+        <item>arizonacoyotes</item>
+        <item>bostonbruins</item>
+        <item>buffalosabres</item>
+        <item>calgaryflames</item>
+        <item>carolinahurricanes</item>
+        <item>chicagoblackhawks</item>
+        <item>coloradoavalanche</item>
+        <item>columbusbluejackets</item>
+        <item>dallasstars</item>
+        <item>detroitredwings</item>
+        <item>edmontonoilers</item>
+        <item>floridapanthers</item>
+        <item>losangeleskings</item>
+        <item>minnesotawild</item>
+        <item>montrealcanadiens</item>
+        <item>nashvillepredators</item>
+        <item>newjerseydevils</item>
+        <item>newyorkislanders</item>
+        <item>newyorkrangers</item>
+        <item>philadelphiaflyers</item>
+        <item>pittsburghpenguins</item>
+        <item>ottawasenators</item>
+        <item>sanjosesharks</item>
+        <item>stlouisblues</item>
+        <item>tampabaylightning</item>
+        <item>torontomapleleafs</item>
+        <item>vancouvercanucks</item>
+        <item>washingtoncapitals</item>
+        <item>winnipegjets</item>
+        <item>international</item>
+    </string-array>
+</resources>

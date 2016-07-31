@@ -23,6 +23,7 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
         this.mPlayers = list;
     }
 
+/*
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Player player = mPlayers.get(position);
@@ -79,6 +80,7 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
         TextView star3;
         ImageView icon;
     }
+*/
 
 
 }

@@ -2,43 +2,94 @@ package com.alexlowe.statman;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * Created by dell on 12/9/2015.
  */
 public class Game {
-    private int homeScore;
-    private int awayScore;
-    private boolean overtime = false;
-    private char result;
-    private String name;
+    private UUID gameId;
     private Date gameDate;
-    private Player firstStar;
-    private Player secondStar;
-    private Player thirdStar;
+
+    private String ourTeam;
+    private String opponentTeam;
+
+    private int ourScore;
+    private int opponentScore;
+    private char result;
+
+
+    private boolean overtime = false;
+    private boolean shootout = false;
+
+    private String firstStarID;
+    private String secondStarID;
+    private String thirdStarID;
 
     private ArrayList<Goal> goalList;
 
     public Game (Date date){
         this.gameDate = date;
-        this.name = ""; //formatted version of date will go here.
+        this.gameId = UUID.randomUUID();
         goalList = new ArrayList<>();
     }
 
-    public int getHomeScore() {
-        return homeScore;
+    public UUID getGameId() {
+        return gameId;
     }
 
-    public void setHomeScore(int homeScore) {
-        this.homeScore = homeScore;
+    public Date getGameDate() {
+        return gameDate;
     }
 
-    public int getAwayScore() {
-        return awayScore;
+
+    public String getOurTeam() {
+        return ourTeam;
     }
 
-    public void setAwayScore(int awayScore) {
-        this.awayScore = awayScore;
+    public void setOurTeam(String ourTeam) {
+        this.ourTeam = ourTeam;
+    }
+
+    public String getOpponenTeam() {
+        return opponentTeam;
+    }
+
+    public void setOpponentTeam(String opponentTeam) {
+        this.opponentTeam = opponentTeam;
+    }
+
+    public int getOurScore() {
+        return ourScore;
+    }
+
+    public void setOurScore(int ourScore) {
+        this.ourScore = ourScore;
+    }
+
+    public int getOpponentScore() {
+        return opponentScore;
+    }
+
+    public void setOpponentScore(int opponentScore) {
+        this.opponentScore = opponentScore;
+    }
+
+    public char getResult() {
+        setResult();
+        return result;
+    }
+
+    public void setResult() {
+        char outcome;
+
+        if(opponentScore > ourScore){
+            outcome = (overtime) ? 'o' : 'l';
+        }else{
+            outcome = 'w';
+        }
+
+        result = outcome;
     }
 
     public boolean isOvertime() {
@@ -49,67 +100,43 @@ public class Game {
         this.overtime = overtime;
     }
 
-    public char getResult() {
-        char outcome;
-
-        if(awayScore > homeScore){
-            outcome = 'l';
-        }else if(overtime){
-            outcome = 'o';
-        }else{
-            outcome = 'w';
-        }
-
-        result = outcome;
-        return result;
+    public boolean isShootout() {
+        return shootout;
     }
 
-
-    public Date getGameDate() {
-        return gameDate;
+    public void setShootout(boolean shootout) {
+        this.shootout = shootout;
     }
 
-    public void setGameDate(Date gameDate) {
-        this.gameDate = gameDate;
+    public String getFirstStarID() {
+        return firstStarID;
     }
 
-    public String getName() {
-        return name;
+    public void setFirstStarID(String firstStarID) {
+        this.firstStarID = firstStarID;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getSecondStarID() {
+        return secondStarID;
     }
 
-    public Player getFirstStar() {
-        return firstStar;
+    public void setSecondStarID(String secondStarID) {
+        this.secondStarID = secondStarID;
     }
 
-    public void setFirstStar(Player firstStar) {
-        this.firstStar = firstStar;
+    public String getThirdStarID() {
+        return thirdStarID;
     }
 
-    public Player getSecondStar() {
-        return secondStar;
-    }
-
-    public void setSecondStar(Player secondStar) {
-        this.secondStar = secondStar;
-    }
-
-    public Player getThirdStar() {
-        return thirdStar;
-    }
-
-    public void setThirdStar(Player thirdStar) {
-        this.thirdStar = thirdStar;
+    public void setThirdStarID(String thirdStarID) {
+        this.thirdStarID = thirdStarID;
     }
 
     public ArrayList<Goal> getGoalList() {
         return goalList;
     }
 
-    public void setGoalList(ArrayList<Goal> goalList) {
-        this.goalList = goalList;
+    public void addGoal(Goal goal) {
+        this.goalList.add(goal);
     }
 }

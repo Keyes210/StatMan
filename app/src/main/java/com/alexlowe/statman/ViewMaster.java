@@ -11,7 +11,7 @@ import android.widget.TextView;
  */
 public class ViewMaster {
 
-    public static void setUpTouchResponse(final Context context, final TextView tv, final Player player, final String statKey) {
+   /* public static void setUpTouchResponse(final Context context, final TextView tv, final Player player, final String statKey) {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,5 +137,5 @@ public class ViewMaster {
                 break;
 
         }
-    }
+    }*/
 }

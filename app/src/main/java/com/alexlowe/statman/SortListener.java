@@ -10,7 +10,7 @@ import java.util.Comparator;
  * Created by dell on 12/9/2015.
  */
 public class SortListener {
-    static boolean sorted = false;
+   /* static boolean sorted = false;
 
     public static View.OnClickListener setUpListener(final ArrayList<Player> players, final PlayerAdapter adapter) {
 
@@ -97,5 +97,5 @@ public class SortListener {
         return result;
     }
 
-
+*/
 }
