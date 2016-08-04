@@ -1,7 +1,7 @@
-package com.alexlowe.statman;
+package com.alexlowe.statman.model;
 
 
-import java.util.UUID;
+import com.alexlowe.statman.R;
 
 /**
  * Created by dell on 12/6/2015.

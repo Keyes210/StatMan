@@ -1,4 +1,4 @@
-package com.alexlowe.statman;
+package com.alexlowe.statman.model;
 
 import java.util.Date;
 import java.util.UUID;

@@ -1,9 +1,10 @@
-package com.alexlowe.statman;
+package com.alexlowe.statman.utilities;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.Toast;
 
+import com.alexlowe.statman.model.Player;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;

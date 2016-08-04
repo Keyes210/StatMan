@@ -1,14 +1,9 @@
-package com.alexlowe.statman;
+package com.alexlowe.statman.ui;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.alexlowe.statman.model.Player;
 
 import java.util.ArrayList;
 

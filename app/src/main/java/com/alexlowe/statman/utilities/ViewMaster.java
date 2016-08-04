@@ -1,4 +1,4 @@
-package com.alexlowe.statman;
+package com.alexlowe.statman.utilities;
 
 import android.app.Dialog;
 import android.content.Context;

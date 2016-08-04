@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/hockey_bg">
+
+    <LinearLayout
+        android:id="@+id/titles"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="#8a8a8a">
+
+
+        <TextView
+            android:id="@+id/playerName"
+            android:layout_weight="1.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Player"
+            android:layout_marginLeft="24dp"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+
+        <RelativeLayout
+            android:layout_weight="7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/G"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:paddingRight="12dp"
+                android:text="G"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:background="@drawable/textview_selector"
+                android:clickable="true"/>
+
+            <TextView
+                android:id="@+id/A"
+                android:layout_toRightOf="@+id/G"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:paddingRight="12dp"
+                android:text="A"
+                android:textStyle="bold"
+                android:textIsSelectable="false"
+                android:textSize="16sp"
+                android:background="@drawable/textview_selector"
+                android:clickable="true"/>
+
+            <TextView
+                android:id="@+id/P"
+                android:layout_marginLeft="24dp"
+                android:layout_toRightOf="@+id/A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="12dp"
+                android:text="P"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:background="@drawable/textview_selector"
+                android:clickable="true"/>
+
+            <TextView
+                android:id="@+id/S1"
+                android:layout_marginLeft="24dp"
+                android:layout_toRightOf="@+id/P"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="12dp"
+                android:text="1*"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:background="@drawable/textview_selector"
+                android:clickable="true"/>
+
+
+            <TextView
+                android:id="@+id/S2"
+                android:layout_marginLeft="18dp"
+                android:layout_toRightOf="@+id/S1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="12dp"
+                android:text="2*"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:background="@drawable/textview_selector"
+                android:clickable="true"/>
+
+            <TextView
+                android:id="@+id/S3"
+                android:layout_marginLeft="16dp"
+                android:layout_toRightOf="@+id/S2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3*"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:background="@drawable/textview_selector"
+                android:clickable="true"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ListView
+        android:listSelector="@android:color/transparent"
+        android:layout_below="@+id/titles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:id="@+id/listView"/>
+
+
+</RelativeLayout>
